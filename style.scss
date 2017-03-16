@@ -245,6 +245,16 @@ a img.aligncenter {
   z-index: 100000; /* Above WP toolbar. */
 }
 
+.wrapper{
+  background-color: rgba(255, 255, 255, 1);
+  padding: .5em;
+}
+
+.wrapper:after{
+  content: '';
+  display: block;
+  clear: both;
+}
 @media screen and (min-width:600px) {
   nav li {
     display: inline-block;
@@ -277,7 +287,14 @@ a img.aligncenter {
   }
   /*make the header taller on just the home page*/
   .home #header{
-    padding-top: 50vh;
+    padding-top: 30vh;
     background-color: #eee;
+  }
+  .custom-logo{
+    max-width: 80px;
+    height: auto;
+  }
+  .home .custom-logo{
+    max-width: 150px;
   }
 }
