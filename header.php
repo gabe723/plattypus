@@ -13,20 +13,26 @@
       <?php
       //add custom logo if the function 'the_custom_logo'(added in 4.5) is supported
       if ( function_exists('the_custom_logo') ) {
-        the_custom_logo();
+        if ( has_custom_logo() ) {
+          the_custom_logo();
+        }else{
+          //title of the site
+          ?>
+          <h1 class="site-title"><a href="<?php echo home_url(); ?>">
+            <?php bloginfo( 'name' ); ?>
+          </a>
+        </h1>
+        <?php
       }
-      ?>
-      <h1 class="site-title"><a href="<?php echo home_url(); ?>">
-        <?php bloginfo( 'name' ); ?>
-      </a></h1>
-      <h2><?php bloginfo( 'description' ); ?></h2>
-      <nav>
-        <ul class="nav">
-          <?php wp_list_pages(array( 'title_li' => '', //hide the 'pages' heading
-          'exclude' => '2', //hide sample page with page_id = 2
-        ) ); ?>
-      </ul>
-    </nav>
+    }
+    ?>
+    <h2><?php bloginfo( 'description' ); ?></h2>
+    <?php wp_nav_menu( array(
+      'theme_location'  => 'main_menu',
+      'container'       => 'nav', //div, nav or false
+      'menu_class'      => 'menu', //ul class="menu"
+    ) );
+    ?>
     <?php get_search_form(); ?>
   </div>
 </header>

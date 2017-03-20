@@ -16,6 +16,12 @@
           if ( is_singular() ){
             //single post, page, attachents, etc
             the_content();
+            wp_link_pages( array(
+              'before'         => '<div class="pagination">Keep Reading:',
+              'after'          => '</div>',
+              'pagelink'       => '<span>%</span>',
+              'next_or_number' => 'next',
+            ) );
           }else{
             //not singular : archives, blog, search results
             the_excerpt();
@@ -34,6 +40,7 @@
       <!-- end .post -->
       <?php
     }//end while
+    platty_pagination();
     comments_template();
   }//end if there are posts
   else{

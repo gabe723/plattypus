@@ -1,46 +1,52 @@
 <aside id="sidebar">
-  <section id="categories" class="widget">
-    <h3 class="widget-title"> Categories </h3>
-    <ul>
-      <?php
-      //show the 15 most common categories, in a flat list
-      wp_list_categories( array(
-        'depth'      => -1,
-        'title_li'   => '',
-        'number'     => 15,
-        'orderby'    => 'count', //order by  number of posts
-        'order'      => 'DESC', //high numbers first
-        'show_count' => true,
-      ) ); ?>
-    </ul>
-  </section>
-  <section id="archives" class="widget">
-    <h3 class="widget-title"> Archives </h3>
-    <ul>
-      <?php //list of all archives, by month
-      wp_get_archives( array(
-        'type' => 'yearly',
-        'limit' => 10,
+  <?php
+  //if there are widgets, show them; otherwise show fallback content
+  //don't forget to call register_sidebar() in functions.php
+  if ( ! dynamic_sidebar( 'Blog Sidebar') ) {
+    ?>
+    <section id="categories" class="widget">
+      <h3 class="widget-title"> Categories </h3>
+      <ul>
+        <?php
+        //show the 15 most common categories, in a flat list
+        wp_list_categories( array(
+          'depth'      => -1,
+          'title_li'   => '',
+          'number'     => 15,
+          'orderby'    => 'count', //order by  number of posts
+          'order'      => 'DESC', //high numbers first
+          'show_count' => true,
+        ) ); ?>
+      </ul>
+    </section>
+    <section id="archives" class="widget">
+      <h3 class="widget-title"> Archives </h3>
+      <ul>
+        <?php //list of all archives, by month
+        wp_get_archives( array(
+          'type' => 'yearly',
+          'limit' => 10,
+        ))?>
+      </ul>
+    </section>
+    <section id="tags" class="widget">
+      <h3 class="widget-title"> Tags </h3>
+      <?php //tag cloud
+      wp_tag_cloud( array(
+        // 'format'   => 'list',
+        'smallest' => 1,
+        'largest'  => 1,
+        'unit'     => 'em',
+        'number'   => 20,
       ))?>
-    </ul>
-  </section>
-  <section id="tags" class="widget">
-    <h3 class="widget-title"> Tags </h3>
-    <?php //tag cloud
-    wp_tag_cloud( array(
-      // 'format'   => 'list',
-      'smallest' => 1,
-      'largest'  => 1,
-      'unit'     => 'em',
-      'number'   => 20,
-    ))?>
-  </section>
-  <section id="meta" class="widget">
-    <h3 class="widget-title"> Meta </h3>
-    <ul>
-      <li><a href="#">Site Admin</a></li>
-      <li><a href="#">Log out</a> </li>
-    </ul>
-  </section>
-</aside>
-<!-- end #sidebar -->
+    </section>
+    <section id="meta" class="widget">
+      <h3 class="widget-title"> Meta </h3>
+      <ul>
+        <li><a href="#">Site Admin</a></li>
+        <li><a href="#">Log out</a> </li>
+      </ul>
+    </section>
+    <?php }//end if there are no widgets ?>
+  </aside>
+  <!-- end #sidebar -->
