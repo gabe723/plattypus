@@ -122,4 +122,12 @@ function platty_widget_areas(){
   ) );
 }
 add_action( 'widgets_init', 'platty_widget_areas' );
+
+/**
+* Improve UX of replying to comments
+*/
+function platty_commments_reply(){
+  wp_enqueue_script('comment-reply');
+}
+add_action( 'wp_enqueue_scripts', 'platty_commments_reply' );
 //DO NOT CLOSE PHP

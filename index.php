@@ -41,7 +41,7 @@
       <?php
     }//end while
     platty_pagination();
-    comments_template();
+    comments_template( '/comments.php', true ); //include comments.php, set separate comments true
   }//end if there are posts
   else{
     echo 'Sorry, no posts to show';
