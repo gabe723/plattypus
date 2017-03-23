@@ -1,4 +1,3 @@
 <aside id="sidebar">
-  <?php dynamic_sidebar('Home Area'); //registered in functions.php ?>
+	<?php dynamic_sidebar( 'Home Area' ); //registered in functions.php ?>
 </aside>
-<!-- end #sidebar-home -->
