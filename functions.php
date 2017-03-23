@@ -5,7 +5,7 @@
 add_theme_support('post-thumbnails');
 
 add_theme_support( 'post-formats', array( 'quote', 'link', 'audio', 'video', 'image',
-		'gallery', 'aside', 'status' ) );
+'gallery', 'aside', 'status' ) );
 
 add_theme_support( 'custom-background' );
 
@@ -26,15 +26,15 @@ add_theme_support( 'automatic-feed-links' );
 
 //improve the markup of WordPress generated code
 add_theme_support( 'html5', array('search-form', 'comment-list', 'comment-form',
-	'gallery', 'caption', ) );
+'gallery', 'caption', ) );
 
 //improve title tag for SEO. Remove <title> from header.php
 add_theme_support( 'title-tag' );
 
 /**
- * Make the excerpts better - customize the number of words and change [...]
- * @see https://developer.wordpress.org/reference/functions/the_excerpt/
- */
+* Make the excerpts better - customize the number of words and change [...]
+* @see https://developer.wordpress.org/reference/functions/the_excerpt/
+*/
 function platty_ex_length(){
 	//short excerpt on search results
 	if( is_search() ){
@@ -52,8 +52,8 @@ function platty_readmore(){
 add_filter( 'excerpt_more', 'platty_readmore' );
 
 /**
- * Create two menu locations. Display them with wp_nav_menu() in your templates
- */
+* Create two menu locations. Display them with wp_nav_menu() in your templates
+*/
 function platty_menus(){
 	register_nav_menus( array(
 		'main_menu' 	=> 'Main Navigation',
@@ -63,8 +63,8 @@ function platty_menus(){
 add_action( 'init', 'platty_menus' );
 
 /**
- * Helper function to handle pagination. Call in any template file.
- */
+* Helper function to handle pagination. Call in any template file.
+*/
 function platty_pagination(){
 	if( ! is_singular() ){
 		//archive pagination
@@ -86,13 +86,13 @@ function platty_pagination(){
 }
 
 /**
- * Register Widget Areas (Dynamic Sidebars)
- * Call dynamic_sidebar() in your templates to display them
- */
+* Register Widget Areas (Dynamic Sidebars)
+* Call dynamic_sidebar() in your templates to display them
+*/
 function platty_widget_areas(){
 	register_sidebar( array(
-		'name' 			=> 'Blog Sidebar',
-		'id'			=> 'blog-sidebar',
+		'name' 			    => 'Blog Sidebar',
+		'id'			      => 'blog-sidebar',
 		'description' 	=> 'Appears next to blog and archive content',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'	=> '</section>',
@@ -100,8 +100,8 @@ function platty_widget_areas(){
 		'after_title' 	=> '</h3>',
 	) );
 	register_sidebar( array(
-		'name' 			=> 'Footer Area',
-		'id'			=> 'footer-area',
+		'name' 			    => 'Footer Area',
+		'id'			      => 'footer-area',
 		'description' 	=> 'Appears at the bottom of every page',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'	=> '</section>',
@@ -109,8 +109,8 @@ function platty_widget_areas(){
 		'after_title' 	=> '</h3>',
 	) );
 	register_sidebar( array(
-		'name' 			=> 'Home Area',
-		'id'			=> 'home-area',
+		'name' 			    => 'Home Area',
+		'id'			      => 'home-area',
 		'description' 	=> 'Appears in the middle of the home page',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'	=> '</section>',
@@ -121,16 +121,16 @@ function platty_widget_areas(){
 add_action( 'widgets_init', 'platty_widget_areas' );
 
 /**
- * Improve UX of replying to comments
- */
+* Improve UX of replying to comments
+*/
 function platty_comments_reply(){
 	wp_enqueue_script( 'comment-reply' );
 }
 add_action( 'wp_enqueue_scripts', 'platty_comments_reply' );
 
 /**
- * Fix the comments number issue (remove trackbacks and pingbacks from comment count)
- */
+* Fix the comments number issue (remove trackbacks and pingbacks from comment count)
+*/
 add_filter('get_comments_number', 'comment_count', 0);
 function comment_count( $count ) {
 	if ( ! is_admin() ) {
@@ -142,6 +142,37 @@ function comment_count( $count ) {
 	}
 }
 
+/**
+* A helper function to output the product's price. Call platty_price() anywhere in the loop to use.
+* Note: 'price' is a custom field.
+* @return mixed. Displays HTML for the price tag.
+*/
+function platty_price(){
+	global $post;
+	$price = get_post_meta( $post->ID, 'price', true );
+	if ($price){
+		?>
+		<span class="price">
+			<?php echo $price; ?>
+		</span>
+		<?php }//end if price
+	}
+
+	/**
+	* A helper function to output the product's size. Call platty_size() anywhere in the loop to use.
+	* Note: 'size' is a custom field.
+	* @return mixed. Displays HTML for the size tag.
+	*/
+	function platty_size(){
+		global $post;
+		$size = get_post_meta( $post->ID, 'size', true );
+		if ($size){
+			?>
+			<span class="size">
+				Size: <?php echo $size; ?>
+			</span>
+			<?php }//end if size
+		}
 
 
 
@@ -151,4 +182,8 @@ function comment_count( $count ) {
 
 
 
-//no close php
+
+
+
+
+	//no close php

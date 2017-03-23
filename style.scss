@@ -52,8 +52,8 @@ $max-width:75em;
 		display: -ms-flexbox;
 		-ms-flex-wrap: wrap;
 		-ms-flex-direction: column;
-		-webkit-flex-flow: row wrap; 
-		flex-flow: row wrap; 
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
 		display: -webkit-box;
 		display: flex;
 
@@ -61,12 +61,12 @@ $max-width:75em;
 			position: relative;
 			-webkit-box-flex: auto;
 			-ms-flex: auto;
-			flex: auto; 
-			width: $width; 
-			margin: .5vw; 
-			img { 
-				width: 100%; 
-				height: auto; 
+			flex: auto;
+			width: $width;
+			margin: .5vw;
+			img {
+				width: 100%;
+				height: auto;
 			}
 		}
 		#{$caption}{
@@ -192,61 +192,61 @@ img{
 		ul {
 			margin: 0;
 			padding: 0;
-			list-style-type: none;      
+			list-style-type: none;
 		}
 		li {
 			width: 100%;
-// float: left;
-border-bottom: solid 1px gray;
-border-right: solid 1px gray;
-position: relative;
-&.current{
+			// float: left;
+			border-bottom: solid 1px gray;
+			border-right: solid 1px gray;
+			position: relative;
+			&.current{
 
-}
-&:hover > a{
-	background: $accent-color;
-}
+			}
+			&:hover > a{
+				background: $accent-color;
+			}
 
-@include tablet {
-	display: inline-block;
-	float: none;
-	width: auto;
-	border: none;
-}
-a {
-	padding: 2.5%;
-	display: block;
-	&:hover,
-	&:focus {
-		background: $accent-color;
-	}
-	@include tablet {
-		padding: 0 1em;
-		line-height: 50px;
-	}
-}
-//TODO: submenus
-ul{
-	display: none;
-	background: rgba($accent-color, .6);
-	@include tablet{
-		position:absolute;
-		top:100%;
-		left:0;
-		z-index: 100;
-	}        
-	min-width:320px;
+			@include tablet {
+				display: inline-block;
+				float: none;
+				width: auto;
+				border: none;
+			}
+			a {
+				padding: 2.5%;
+				display: block;
+				&:hover,
+				&:focus {
+					background: $accent-color;
+				}
+				@include tablet {
+					padding: 0 1em;
+					line-height: 50px;
+				}
+			}
+			//TODO: submenus
+			ul{
+				display: none;
+				background: rgba($accent-color, .6);
+				@include tablet{
+					position:absolute;
+					top:100%;
+					left:0;
+					z-index: 100;
+				}
+				min-width:320px;
 
-	li{
-		display: block;
-		float:none;
+				li{
+					display: block;
+					float:none;
+				}
+			}
+			&:hover ul{
+				display: block;
+			}
+		}
 	}
-}
-&:hover ul{
-	display: block;
-}
-}
-}
 }
 
 #content {
@@ -255,7 +255,7 @@ ul{
 		width: 68%;
 		float: left;
 		position: relative;
-		top: -6em;   
+		top: -6em;
 
 	}
 	.hentry {
@@ -281,7 +281,7 @@ ul{
 	.page-template-template-no-sidebar &,
 	.home.page &{
 		width:98%;
-		float:none; 
+		float:none;
 		left:0;
 	}
 }
@@ -371,7 +371,7 @@ a {
 			vertical-align: center;
 		}
 		th{
-			background-color:$accent-color;   
+			background-color:$accent-color;
 		}
 
 		#today{
@@ -411,7 +411,7 @@ a {
 		margin-right:2%;
 		margin-bottom:10%;
 		float:left;
-		@include hovering-box();    
+		@include hovering-box();
 		&:nth-child(2n+1){
 			clear:both;
 		}
@@ -436,12 +436,12 @@ a {
 	}
 }
 .post-type-archive-product .product-grid{
-	@include stretchy-grid(article, '.caption', 300px);
+	@include stretchy-grid(article, '.caption', 150px);
 
 }
 .price{
-	color:$accent-color;
-	;}
+	color: $accent-color;
+	}
 
 	/* ==wordpress core */
 
@@ -562,6 +562,3 @@ a {
 	.sticky, .gallery-caption,  .bypostauthor{
 		text-decoration: none;
 	}
-
-
-
