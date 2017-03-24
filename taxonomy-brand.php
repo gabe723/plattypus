@@ -3,6 +3,9 @@
 <main id="content" class="product-grid">
 	<?php
 	if( have_posts() ){
+		?>
+		<h1>Products by <?php single_cat_title(); ?></h1>
+		<?php
 		while( have_posts() ){
 			the_post();
 			?>

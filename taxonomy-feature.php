@@ -3,6 +3,9 @@
 <main id="content" class="product-grid">
 	<?php
 	if( have_posts() ){
+		?>
+		<h1>Products by <?php single_cat_title(); ?></h1>
+		<?php
 		while( have_posts() ){
 			the_post();
 			?>
@@ -12,7 +15,7 @@
 					<div class="caption">
 						<h2><?php the_title(); ?></h2>
 
-						<?php the_terms( $post->ID, 'brand', '<h3 class="brand">', ',', '</h3>' ); ?>
+						<?php the_terms( $post->ID, 'feature', '<h3 class="feature">', ',', '</h3>' ); ?>
 
 						<?php platty_price(); ?>
 
