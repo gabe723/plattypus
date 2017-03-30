@@ -1,5 +1,18 @@
+/*
+Theme Name: Plattypus
+Theme URI: http://webpagewithinstructions.example.com
+Description: A WordPress theme Demo for WCM400 at Platt College
+Author: Gabe Neri
+Author URI: http://www.gabeneri.com
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl.html
+Version: 0.1
+Text Domain: Plattypus
+Tags: custom-colors, blog, two-columns, custom-header
+*/
+
 /* todo: remove this later */
-@import 'https://fonts.googleapis.com/css?family=Lato:400,400i,700|Playfair+Display:400,900';
+@import "https://fonts.googleapis.com/css?family=Lato:400,400i,700|Playfair+Display:400,900";
 /* Source SCSS is at http://codepen.io/melissacabral/pen/xOaYgq */
 $text-color:    black;
 $link-color:    darkslategray;
@@ -250,6 +263,7 @@ img{
 }
 
 #content {
+	@include clearfix;
 	@include hovering-box;
 	@include tablet {
 		width: 68%;
@@ -279,6 +293,7 @@ img{
 	}
 	/* full width main content*/
 	.page-template-template-no-sidebar &,
+	.page-template-template-sitemap &,
 	.home.page &{
 		width:98%;
 		float:none;
@@ -561,4 +576,13 @@ a {
 
 	.sticky, .gallery-caption,  .bypostauthor{
 		text-decoration: none;
+	}
+
+	.one-third{
+		width: 33.33%;
+		float: left;
+	}
+
+	.format-quote{
+		background: yellow;
 	}

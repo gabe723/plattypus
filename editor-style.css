@@ -1,0 +1,27 @@
+@import "https://fonts.googleapis.com/css?family=Lato:400,400i,700|Playfair+Display:400,900";
+
+body{
+  font-family: Lato, sans-serif;
+  color: gray;
+}
+/* ==typography */
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: 'Playfair Display', Georgia, serif;
+	font-weight: 900;
+}
+
+ul,
+li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: $link-color;
+}

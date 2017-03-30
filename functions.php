@@ -1,6 +1,5 @@
 <?php
 //turn on sleeping features
-
 //featured image support:
 add_theme_support('post-thumbnails');
 
@@ -30,6 +29,12 @@ add_theme_support( 'html5', array('search-form', 'comment-list', 'comment-form',
 
 //improve title tag for SEO. Remove <title> from header.php
 add_theme_support( 'title-tag' );
+
+//auto embed max width
+if ( ! isset( $content_width ) ) $content_width = 735; //measurement is in px
+
+//editor-style.css
+add_editor_style();
 
 /**
 * Make the excerpts better - customize the number of words and change [...]

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php bloginfo( 'language' ); ?>">
+<html lang="<?php language_attributes(); ?>">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
 	<?php wp_head(); //hook. REQUIRED for plugins and admin bar to work ?>
 </head>
 <body <?php body_class(); ?>>
-	
+
 
 	<header role="banner" id="header"
 	style="background-image:url(<?php header_image(); ?>)" >
