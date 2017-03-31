@@ -13,7 +13,14 @@
 					</a>
 				</h2>
 
-				<?php the_post_thumbnail( 'thumbnail' ); ?>
+				<?php
+				//use "$wp_query" when in the main loop
+				if ( $wp_query->current_post == 0 ) {
+					the_post_thumbnail( 'large' );
+				}else {
+					the_post_thumbnail( 'thumbnail' );
+				}
+				?>
 
 				<div class="entry-content">
 					<?php

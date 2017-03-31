@@ -19,7 +19,35 @@
 	} // end if
 	?>
 
-</main>
+	<?php
+	//get up to 5 latest products
+	$products = new WP_Query( array(
+		'post_type'      => 'product',
+		'posts_per_page' => 5,
+	) );
 
-<?php get_sidebar('home'); //include sidebar-home.php ?>
-<?php get_footer(); ?>
+	if ( $products->have_posts() ) {
+		?>
+		<div class="featured-products">
+			<h2>Featured Products:</h2>
+			<ul>
+				<?php while( $products->have_posts() ){
+					$products->the_post();
+					?>
+					<li>
+						<a href="PERMALINK">
+							<?php the_post_thumbnail( 'thumbnail' ); ?>
+							<div class="caption">
+								<h3><?php the_title(); ?></h3>
+								<?php platty_price(); ?>
+							</div>
+						</a>
+					</li>
+					<?php }//end while ?>
+				</ul>
+			</div>
+			<?php }//end of custom "product" query loop ?>
+		</main>
+
+		<?php get_sidebar('home'); //include sidebar-home.php ?>
+		<?php get_footer(); ?>
