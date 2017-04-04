@@ -1,12 +1,18 @@
 <?php get_header(); ?>
 
 <main id="content">
+	<?php //check to see if the slider plugin exists before running its function
+	if( function_exists( 'gn_slider' ) ){
+		gn_slider();
+	}
+	?>
+
 	<?php
 	if ( have_posts() ) {
 		while ( have_posts() ) {
 			the_post();
 			?>
-
+			
 			<h1 class="page-title">
 				<?php the_title(); ?>
 			</h1>
