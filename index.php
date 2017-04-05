@@ -36,7 +36,8 @@
 					}else{
 						//not singular : archives, blog, search results
 						the_excerpt();
-					} ?>
+					}
+					?>
 				</div>
 				<div class="postmeta">
 					<span class="author">by: <?php the_author(); ?> </span>
