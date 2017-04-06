@@ -12,12 +12,12 @@
 				<?php
 				//show the 15 most common categories, in a flat list
 				wp_list_categories( array(
-					'depth' 	=> -1,
-					'title_li' 	=> '',
-					'number' 	=> 15,
-					'orderby' 	=> 'count', //order by number of posts
-					'order'		=> 'DESC', //high numbers first
-					'show_count'=> true,
+					'depth' 	   => -1,
+					'title_li' 	 => '',
+					'number' 	   => 15,
+					'orderby' 	 => 'count', //order by number of posts
+					'order'		   => 'DESC', //high numbers first
+					'show_count' => true,
 				) ); ?>
 			</ul>
 		</section>
@@ -35,7 +35,7 @@
 			<ul>
 				<?php //list of all archives, by year
 				wp_get_archives( array(
-					'type' => 'yearly',
+					'type'  => 'yearly',
 					'limit' => 10,
 				) ); ?>
 			</ul>
@@ -46,10 +46,10 @@
 			<?php
 			wp_tag_cloud( array(
 				// 'format' 	=> 'list',
-				'smallest' 		=> .8,
-				'largest' 		=> 1.1,
-				'unit' 			=> 'em',
-				'number'		=> 20,
+				'smallest' => .8,
+				'largest'  => 1.1,
+				'unit' 	   => 'em',
+				'number'   => 20,
 			) );
 			?>
 
