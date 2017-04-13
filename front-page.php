@@ -12,7 +12,7 @@
 		while ( have_posts() ) {
 			the_post();
 			?>
-			
+
 			<h1 class="page-title">
 				<?php the_title(); ?>
 			</h1>
@@ -41,7 +41,7 @@
 					$products->the_post();
 					?>
 					<li>
-						<a href="PERMALINK">
+						<a href="<?php the_permalink(); ?>">
 							<?php the_post_thumbnail( 'thumbnail' ); ?>
 							<div class="caption">
 								<h3><?php the_title(); ?></h3>
